@@ -1,0 +1,11 @@
+{
+    "Name": "MyHDInsightCluster",
+    "Properties": 
+    {
+        "Type": "HDInsightBYOCLinkedService",
+        "ClusterUri": "https://myshuttle2.azurehdinsight.net/",
+        "UserName": "admin",
+        "Password": "MyShuttle0)",
+        "LinkedServiceName": "AzureStorage"
+    }
+}

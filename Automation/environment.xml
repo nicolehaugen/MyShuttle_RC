@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<env>
+  <azuresubscription name="Windows Azure MSDN" />
+  <storageaccount name="myshuttledemo" />
+  <resourcegroup name="myshuttle" location="West US" />
+  <websiteaspnet name="MyShuttleASPNET" />
+  <websitemobileservice name="MyShuttleMobileService" />
+  <websitewebjob name="MyShuttleWebJob" />
+  <sqlserver name="myshuttlesqlserver" login="myshuttleadmin" password="myshuttle1234!" dbname="MyShuttle" />
+  <sharepoint name="MyShuttleSharepointName" username="MyShuttleSharepointUsername" password="MyShuttleSharepointPassword" />
+  <salesforce consumerkey="SalesforceConsumerKey" username="SalesforceUsername" password="SalesforcePassword" consumersecret="SalesforceConsumerSecret" accountid="SalesforceAccountId" />
+  <eventhub namespace="myshuttlens" name="myshuttle2" />
+  <hdinsight name="myshuttle" clusternodes="1" username="admin" password="MyShuttle0)" />
+  <streamanalytics name="myshuttle2" location="Central US" />
+  <datafactory name="myshuttlefactory" location="West US" />
+  <documentdb name="myshuttledb" />
+  <websitewebapi name="myshuttlewebapi" />
+</env>
