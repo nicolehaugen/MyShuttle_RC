@@ -156,16 +156,16 @@ namespace MyShuttle.Data
 
         public async Task<IEnumerable<Vehicle>> GetByDistanceAsync(double latitude, double longitude, int count)
         {
-            var vehicles = await _context.Vehicles
-                .Select(v => new
+            var allVehicles = await _context.Vehicles.ToListAsync();
+            var filteredVehicles = allVehicles.Select(
+                v => new
                 {
                     Vehicle = v,
                     Carrier = _context.Carriers.SingleOrDefault(c => c.CarrierId == v.CarrierId),
                     DistanceFromGivenPosition = GetDistance(v.Latitude, v.Longitude, latitude, longitude, 'M')
-                })
-                .ToListAsync();
+                });
 
-            var results = vehicles.OrderBy(v => v.DistanceFromGivenPosition)
+            var results = filteredVehicles.OrderBy(v => v.DistanceFromGivenPosition)
                                   .Take(count);
 
             return results.Select(v => BuildVehicle(v.Vehicle, null, v.Carrier, v.DistanceFromGivenPosition));
