@@ -32,7 +32,6 @@ node_modules/
 **/MyShuttle.Web/**/lib/
 .idea
 /MyShuttle.sln.ide
-Components/
 src/MvvmCross-UserInteraction/packages/
 bld/
 !Automation/Tools/*.exe
