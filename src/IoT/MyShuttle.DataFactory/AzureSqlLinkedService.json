@@ -1,0 +1,8 @@
+{
+    "name": "AzureSQLDatabase",
+    "properties":
+    {
+        "type": "AzureSqlLinkedService",
+        "connectionString": "Server=tcp:myshuttle2.database.windows.net,1433;Database=myshuttle2;User ID=myshuttle@myshuttle2;Password=shuttleP2ssw0rd;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
+    }
+}

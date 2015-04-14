@@ -1,0 +1,79 @@
+﻿/// <reference path="../../../_app.ts" />
+/// <reference path="../rides.ts" />
+
+module MyShuttle.Rides {
+    export class Employee {
+        EmployeeId: number;
+        Name: string;
+        Email: string;
+        CustomerId: number;
+        Picture: any;
+    }
+
+    export class Ride {
+        RideId: number;
+        StartDateTime: Date;
+        EndDateTime: Date;
+        StartLatitude: number;
+        StartLongitude: number;
+        EndLatitude: number;
+        EndLongitude: number;
+        StartAddress: string;
+        EndAddress: string;
+        Distance: number;
+        Duration: number;
+        Cost: number;
+        Signature: any;
+        Rating: number;
+        Comments: string;
+        VehicleId: number;
+        CarrierId: number;
+        DriverId: number;
+        EmployeeId: number;
+        Employee: Employee;
+    }
+
+    export class DataService {
+        private client: Microsoft.WindowsAzure.MobileServiceClient;
+
+        constructor(private $q, private settingsService: MyShuttle.Core.SettingsService) {
+            this.client = new WindowsAzure.MobileServiceClient(
+<<<<<<< HEAD
+                this.settingsService.mobileServiceUrl,
+=======
+                this.settingsService.getMobileServiceUrl(),
+>>>>>>> ce0576f340b4a4908d987bdf588bb69d19c6c472
+                this.settingsService.mobileServiceKey);
+
+            return this;
+        }
+
+        public addRide(data) {
+            var ride = new Ride();
+            ride.StartDateTime = data.startRideTime.toDate();
+            ride.EndDateTime = data.endRideTime.toDate();
+            ride.StartLatitude = data.startRideLocation.latitude;
+            ride.StartLongitude = data.startRideLocation.longitude;
+            ride.EndLatitude = data.endRideLocation.latitude;
+            ride.EndLongitude = data.endRideLocation.longitude;
+            ride.StartAddress = '';
+            ride.EndAddress = '';
+            ride.Distance = data.distance;
+            ride.Duration = data.duration;
+            ride.Cost = data.cost;
+            ride.Signature = null; // TODO: Get signature
+            ride.VehicleId = this.settingsService.fakeVehicle.VehicleId;
+            ride.CarrierId = 1;  // TODO: Read from settings?
+            ride.DriverId = 1;
+            ride.Employee = new Employee();
+            ride.Employee.Email = data.employeeEmail;
+            
+            var rideTable = this.client.getTable('ride');
+            return rideTable.insert(ride);
+        }
+    }
+
+    angularModule.factory('dataService', ($q, settingsService) => {
+        return new MyShuttle.Rides.DataService($q, settingsService);
+    });
+}

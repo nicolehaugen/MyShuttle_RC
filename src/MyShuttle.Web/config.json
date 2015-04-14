@@ -1,0 +1,14 @@
+﻿{
+    "DefaultUsername": "carrier",
+    "DefaultPassword": "Shuttle@1",
+    "Data": {
+        "DefaultConnection": {
+            "ConnectionString": "Server=(localdb)\\MSSQLLocalDB;Database=MyShuttle2;Trusted_Connection=True;MultipleActiveResultSets=true"
+        }
+    },
+    "EntityFramework": {
+        "MyShuttleContext": {
+            "ConnectionStringKey": "Data:DefaultConnection:ConnectionString"
+        }
+    }
+}

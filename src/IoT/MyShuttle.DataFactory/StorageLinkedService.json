@@ -1,0 +1,7 @@
+{  
+   "name":"AzureStorage",
+   "properties":{  
+      "type":"AzureStorageLinkedService",
+      "connectionString":"DefaultEndpointsProtocol=https;AccountName=myshuttlestorage2;AccountKey=QjNuIECztgxmTEkT5pNOSHCNoVedwM5EZao/uKCPXBg11tU6teH8M/7DP7yJMWKCa4WwDYif8yHjPFH8/D9VFQ=="
+   }
+}

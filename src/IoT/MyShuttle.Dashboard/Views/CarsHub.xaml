@@ -1,0 +1,211 @@
+﻿<Page
+    x:Name="pageRoot"
+    x:Class="MyShuttle.Dashboard.Views.CarsHub"
+    DataContext="{Binding DefaultViewModel, RelativeSource={RelativeSource Self}}"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MyShuttle.Dashboard.Views"
+    xmlns:common="using:MyShuttle.Dashboard.Common"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <x:String x:Key="ChevronGlyph">&#xE26B;</x:String>
+        <!-- TODO: Delete this line if the key AppName is declared in App.xaml -->
+        <x:String x:Key="AppName">My Shuttle</x:String>
+    </Page.Resources>
+
+    <!--
+        This grid acts as a root panel for the page.
+    -->
+    <Grid>
+        <Grid.ChildrenTransitions>
+            <TransitionCollection>
+                <EntranceThemeTransition/>
+            </TransitionCollection>
+        </Grid.ChildrenTransitions>
+
+        <Hub x:Name="CarHub" HeaderTemplate="{StaticResource MyShuttleHeaderHubDataTemplate}" HorizontalContentAlignment="Stretch">
+            <Hub.Background>
+                <ImageBrush ImageSource="ms-appx:///Assets/1920/bg1920.png"></ImageBrush>
+            </Hub.Background>
+            <HubSection x:Name="CarSection" Margin="80,0,0,0" Header="Loading..." Loaded="CarSection_Loaded">
+                <DataTemplate>
+                    <StackPanel Loaded="Car_OnLoaded">
+                        <StackPanel.Resources>
+                            <Storyboard x:Name="CarLoadStoryBoard">
+                                <DoubleAnimationUsingKeyFrames EnableDependentAnimation="True" Storyboard.TargetProperty="(RangeBase.Value)" Storyboard.TargetName="ConsumptionSlider">
+                                    <EasingDoubleKeyFrame KeyTime="0:0:4" Value="0.84">
+                                        <EasingDoubleKeyFrame.EasingFunction>
+                                            <ExponentialEase EasingMode="EaseOut" Exponent="8"/>
+                                        </EasingDoubleKeyFrame.EasingFunction>
+                                    </EasingDoubleKeyFrame>
+                                </DoubleAnimationUsingKeyFrames>
+                                <DoubleAnimationUsingKeyFrames EnableDependentAnimation="True" Storyboard.TargetProperty="(RangeBase.Value)" Storyboard.TargetName="SpeedSlider">
+                                    <EasingDoubleKeyFrame KeyTime="0:0:4" Value="20">
+                                        <EasingDoubleKeyFrame.EasingFunction>
+                                            <ExponentialEase EasingMode="EaseOut" Exponent="8"/>
+                                        </EasingDoubleKeyFrame.EasingFunction>
+                                    </EasingDoubleKeyFrame>
+                                </DoubleAnimationUsingKeyFrames>
+                                <DoubleAnimationUsingKeyFrames EnableDependentAnimation="True" Storyboard.TargetProperty="(RangeBase.Value)" Storyboard.TargetName="RidesSlider">
+                                    <EasingDoubleKeyFrame KeyTime="0:0:4" Value="154">
+                                        <EasingDoubleKeyFrame.EasingFunction>
+                                            <ExponentialEase EasingMode="EaseOut" Exponent="8"/>
+                                        </EasingDoubleKeyFrame.EasingFunction>
+                                    </EasingDoubleKeyFrame>
+                                </DoubleAnimationUsingKeyFrames>
+                                <DoubleAnimationUsingKeyFrames EnableDependentAnimation="True" Storyboard.TargetProperty="(RangeBase.Value)" Storyboard.TargetName="BreakdownsSlider">
+                                    <EasingDoubleKeyFrame KeyTime="0:0:4" Value="1">
+                                        <EasingDoubleKeyFrame.EasingFunction>
+                                            <ExponentialEase EasingMode="EaseOut" Exponent="8"/>
+                                        </EasingDoubleKeyFrame.EasingFunction>
+                                    </EasingDoubleKeyFrame>
+                                </DoubleAnimationUsingKeyFrames>
+                                <DoubleAnimationUsingKeyFrames EnableDependentAnimation="True" Storyboard.TargetProperty="(RangeBase.Value)" Storyboard.TargetName="MillesSlider">
+                                    <EasingDoubleKeyFrame KeyTime="0:0:4" Value="200">
+                                        <EasingDoubleKeyFrame.EasingFunction>
+                                            <ExponentialEase EasingMode="EaseOut" Exponent="8"/>
+                                        </EasingDoubleKeyFrame.EasingFunction>
+                                    </EasingDoubleKeyFrame>
+                                </DoubleAnimationUsingKeyFrames>
+                            </Storyboard>
+                        </StackPanel.Resources>
+                        <Grid x:Name="gridSke">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="135" />
+                                <ColumnDefinition Width="315" />
+                                <ColumnDefinition Width="300" />
+                                <ColumnDefinition Width="165" />
+                                <ColumnDefinition Width="78" />
+                            </Grid.ColumnDefinitions>
+                            <Image Grid.ColumnSpan="6" x:Name="imgSke" Source="ms-appx:///Assets/1280/Vehicle/ske.png"/>
+                            <TextBlock FontSize="52" LineStackingStrategy="BaselineToBaseline" LineHeight="25" HorizontalAlignment="Right" FlowDirection="RightToLeft" Margin="0,49,0,0" Foreground="#FF5CC2B0">
+                                <Run Text="{Binding ElementName=ConsumptionSlider, Path=Value, Converter={StaticResource RoundNumberConverter}, ConverterParameter=2}"></Run>
+                                <LineBreak></LineBreak>
+                                <Run Text="g/miles" FontSize="20"></Run>
+                            </TextBlock>
+                            <Slider x:Name="ConsumptionSlider" Maximum="1" Value="0" Visibility="Collapsed" FontFamily="Global User Interface"></Slider>
+                            <TextBlock Grid.Column="1" FontSize="52" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,0,-10" Foreground="#FF5CC2B0">
+                                <Run Text="{Binding ElementName=SpeedSlider, Path=Value, Converter={StaticResource RoundNumberConverter}}"></Run><Run Text="mph" FontSize="20"></Run>
+                            </TextBlock>
+                            <Slider x:Name="SpeedSlider" Maximum="200" Value="0" Visibility="Collapsed"></Slider>
+                            <TextBlock Grid.Column="2" Text="{Binding ElementName=RidesSlider, Path=Value, Converter={StaticResource RoundNumberConverter}}" FontSize="52" HorizontalAlignment="Right" Margin="0,32,0,0" Foreground="#FF5CC2B0"></TextBlock>
+                            <Slider x:Name="RidesSlider" Maximum="2000" Value="0" Visibility="Collapsed"></Slider>
+                            <TextBlock Grid.Column="3" Text="{Binding ElementName=BreakdownsSlider, Path=Value, Converter={StaticResource RoundNumberConverter}}" FontSize="52" HorizontalAlignment="Right" Margin="0,76,-10,0" Foreground="#FF5CC2B0"></TextBlock>
+                            <Slider x:Name="BreakdownsSlider" Maximum="2000" Value="0" Visibility="Collapsed"></Slider>
+                            <TextBlock Grid.Column="3" Grid.ColumnSpan="2" FontSize="52" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,0,-10" Foreground="#FF5CC2B0">
+                                <Run Text="{Binding ElementName=MillesSlider, Path=Value, Converter={StaticResource RoundNumberConverter}}"></Run><Run Text="miles" FontSize="20"></Run>
+                            </TextBlock>
+                            <Slider x:Name="MillesSlider" Maximum="2000" Value="0" Visibility="Collapsed"></Slider>
+                        </Grid>
+                    </StackPanel>
+                </DataTemplate>
+            </HubSection>
+            <HubSection x:Name="AlarmSection" Header="Alarms" HeaderTemplate="{StaticResource HeaderHubDataTemplate}" Loaded="HubSection_Loaded_1">
+                <DataTemplate>
+                    <Grid Loaded="AlarmSection_OnLoaded">
+                        <Grid.Resources>
+                            <Storyboard x:Name="AlarmSectionLoadStoryBoard">
+                                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="progressRing">
+                                    <DiscreteObjectKeyFrame KeyTime="0:0:1">
+                                        <DiscreteObjectKeyFrame.Value>
+                                            <Visibility>Collapsed</Visibility>
+                                        </DiscreteObjectKeyFrame.Value>
+                                    </DiscreteObjectKeyFrame>
+                                </ObjectAnimationUsingKeyFrames>
+                                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="stcAlarms">
+                                    <EasingDoubleKeyFrame KeyTime="0:0:0.967" Value="0"/>
+                                    <EasingDoubleKeyFrame KeyTime="0:0:1" Value="1"/>
+                                </DoubleAnimationUsingKeyFrames>
+                            </Storyboard>
+                        </Grid.Resources>
+                        <ProgressRing x:Name="progressRing" HorizontalAlignment="Center" Width="70" Height="70" IsActive="True" VerticalAlignment="Top" Margin="0,30,0,0" Foreground="White"/>
+                        <StackPanel x:Name="stcAlarms" Opacity="0">
+                            <StackPanel x:Name="stc1" Margin="0" Orientation="Horizontal">
+                                <Image x:Name="imgAla1" Source="ms-appx:///Assets/1280/Vehicle/ala1.png"/>
+                                <Image x:Name="imgAla3" Source="ms-appx:///Assets/1280/Vehicle/ala3.png" Margin="5,0,0,0"/>
+                            </StackPanel>
+                            <StackPanel x:Name="stc2" Margin="0,5,0,0" Orientation="Horizontal">
+                                <Image x:Name="imgAla2" Source="ms-appx:///Assets/1280/Vehicle/ala2.png"/>
+                                <Image x:Name="imgAla5" Source="ms-appx:///Assets/1280/Vehicle/ala5.png" Margin="5,0,0,0"/>
+                            </StackPanel>
+                            <Image x:Name="imgAla4" Source="ms-appx:///Assets/1280/Vehicle/ala4.png" HorizontalAlignment="Left" Margin="0,5,0,0"/>
+                        </StackPanel>
+                    </Grid>
+                </DataTemplate>
+            </HubSection>
+            <HubSection x:Name="MillesSection" Header="miles traveled vs invoiced" HeaderTemplate="{StaticResource HeaderHubDataTemplate}" Loaded="HubSection_Loaded" HorizontalAlignment="Left">
+                <DataTemplate>
+                    <StackPanel x:Name="StackPanel" Loaded="FrameworkElement_OnLoaded">
+                        <StackPanel.Resources>
+                            <Storyboard x:Name="Cha1LoadStoryBoard">
+                                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="imgCha1B">
+                                    <DiscreteObjectKeyFrame KeyTime="0">
+                                        <DiscreteObjectKeyFrame.Value>
+                                            <Visibility>Visible</Visibility>
+                                        </DiscreteObjectKeyFrame.Value>
+                                    </DiscreteObjectKeyFrame>
+                                </ObjectAnimationUsingKeyFrames>
+                                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)" Storyboard.TargetName="imgCha1B">
+                                    <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                                    <EasingDoubleKeyFrame KeyTime="0:0:1.1" Value="1"/>
+                                </DoubleAnimationUsingKeyFrames>
+                            </Storyboard>
+                            <Storyboard x:Name="Cha2LoadStoryBoard">
+                                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="imgCha2B">
+                                    <DiscreteObjectKeyFrame KeyTime="0">
+                                        <DiscreteObjectKeyFrame.Value>
+                                            <Visibility>Visible</Visibility>
+                                        </DiscreteObjectKeyFrame.Value>
+                                    </DiscreteObjectKeyFrame>
+                                </ObjectAnimationUsingKeyFrames>
+                                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)" Storyboard.TargetName="imgCha2B">
+                                    <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                                    <EasingDoubleKeyFrame KeyTime="0:0:1.1" Value="1"/>
+                                </DoubleAnimationUsingKeyFrames>
+                            </Storyboard>
+                        </StackPanel.Resources>
+                        <Grid Width="760">
+                            <Grid x:Name="imgCha1G" Visibility="Collapsed">
+                                <Image x:Name="imgCha1A" Source="ms-appx:///Assets/1280/Vehicle/cha1A.png" Width="760" Height="428"/>
+                                <Image x:Name="imgCha1B" Source="ms-appx:///Assets/1280/Vehicle/cha1B.png" Width="760" Tapped="imgCha1_Tapped" Visibility="Collapsed" RenderTransformOrigin="0.5,1" Height="428" VerticalAlignment="Top">
+                                    <Image.RenderTransform>
+                                        <CompositeTransform/>
+                                    </Image.RenderTransform>
+                                </Image>
+                            </Grid>
+                            <Grid x:Name="imgCha2G" Visibility="Collapsed">
+                                <Image x:Name="imgCha2A" Source="ms-appx:///Assets/1280/Vehicle/cha2A.png" Width="760" Height="428"/>
+                                <Image x:Name="imgCha2B" Source="ms-appx:///Assets/1280/Vehicle/cha2B.png" Width="760" Tapped="imgCha2_Tapped" Visibility="Collapsed" RenderTransformOrigin="0.5,1" Height="428" VerticalAlignment="Top">
+                                    <Image.RenderTransform>
+                                        <CompositeTransform/>
+                                    </Image.RenderTransform>
+                                </Image>
+                            </Grid>
+                        </Grid>
+                        <Grid Margin="70,10,0,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <StackPanel Orientation="Horizontal">
+                                <Image x:Name="Month" Source="ms-appx:///Assets/1280/Vehicle/month.png" Margin="0,0,10,0" Tapped="Month_OnTapped"></Image>
+                                <Image x:Name="MonthActive" Source="ms-appx:///Assets/1280/Vehicle/monthactive.png" Margin="0,0,10,0" Visibility="Collapsed"></Image>
+                                <Image x:Name="Year" Source="ms-appx:///Assets/1280/Vehicle/year.png" Margin="0,0,10,0" Tapped="Year_OnTapped" Visibility="Collapsed"></Image>
+                                <Image x:Name="YearActive" Source="ms-appx:///Assets/1280/Vehicle/yearactive.png" Margin="0,0,10,0"></Image>
+                            </StackPanel>
+                            <TextBlock x:Name="Actual" Style="{StaticResource SubheaderTextBlockStyle}" Grid.ColumnSpan="3" Text="2014" VerticalAlignment="Top" HorizontalAlignment="Center" Foreground="#FF95A8BD" Margin="0,0,0,0"/>
+                            <StackPanel Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Right">
+                                <!--<Image x:Name="Previous" Source="ms-appx:///Assets/1280/Vehicle/previous.png"></Image>-->
+                                <Image x:Name="Next" Source="ms-appx:///Assets/1280/Vehicle/next.png" Visibility="Collapsed"></Image>
+                            </StackPanel>
+                        </Grid>
+                    </StackPanel>
+                </DataTemplate>
+            </HubSection>
+        </Hub>
+    </Grid>
+</Page>

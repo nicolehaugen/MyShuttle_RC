@@ -1,0 +1,380 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{71DD9A2E-F00A-4521-8E7B-FB36DA305D8A}</ProjectGuid>
+    <OutputType>AppContainerExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MyShuttle.Dashboard</RootNamespace>
+    <AssemblyName>MyShuttle.Dashboard</AssemblyName>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <TargetPlatformVersion>8.1</TargetPlatformVersion>
+    <MinimumVisualStudioVersion>12</MinimumVisualStudioVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{BC8A1FFA-BEE3-4634-8014-F334798102B3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <PackageCertificateKeyFile>MyShuttle.Dashboard_TemporaryKey.pfx</PackageCertificateKeyFile>
+    <NuGetPackageImportStamp>ffcf48f1</NuGetPackageImportStamp>
+    <!--<SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>-->
+    <ExpressionBlendVersion>12.0.50716.0</ExpressionBlendVersion>
+    <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
+    <AppxBundlePlatforms>x64</AppxBundlePlatforms>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_APP</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_APP</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_APP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
+    <OutputPath>bin\ARM\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_APP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_APP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_APP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_APP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_APP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Common\NavigationHelper.cs" />
+    <Compile Include="Common\ObservableDictionary.cs" />
+    <Compile Include="Common\RelayCommand.cs" />
+    <Compile Include="Common\SuspensionManager.cs" />
+    <Compile Include="Converters\BoolToVisibilityConverter.cs" />
+    <Compile Include="Converters\RoundNumberConverter.cs" />
+    <Compile Include="Helpers\ControlTreeHelper.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\MapViewModel.cs" />
+    <Compile Include="Views\MapPage.xaml.cs">
+      <DependentUpon>MapPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MillesHub.xaml.cs">
+      <DependentUpon>MillesHub.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CarsHub.xaml.cs">
+      <DependentUpon>CarsHub.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DriversHub.xaml.cs">
+      <DependentUpon>DriversHub.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MainHub.xaml.cs">
+      <DependentUpon>MainHub.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxManifest Include="Package.appxmanifest">
+      <SubType>Designer</SubType>
+    </AppxManifest>
+    <None Include="MyShuttle.Dashboard_TemporaryKey.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\1280\bg1280.png" />
+    <Content Include="Assets\1280\Driver\Guthrie\car-file.png" />
+    <Content Include="Assets\1280\Driver\Guthrie\chaB.png" />
+    <Content Include="Assets\1280\Driver\Guthrie\driver-file.png" />
+    <Content Include="Assets\1280\Driver\Guthrie\sta1.png" />
+    <Content Include="Assets\1280\Driver\Guthrie\sta2.png" />
+    <Content Include="Assets\1280\Driver\Guthrie\sta3.png" />
+    <Content Include="Assets\1280\Driver\Hanselman\car-file.png" />
+    <Content Include="Assets\1280\Driver\cha2A.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\1280\Driver\cha2B.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\1280\Driver\chaA.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\1280\Driver\Hanselman\chaB.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\1280\Driver\Hanselman\driver-file.png" />
+    <Content Include="Assets\1280\Driver\Hanselman\sta1.png" />
+    <Content Include="Assets\1280\Driver\Hanselman\sta2.png" />
+    <Content Include="Assets\1280\Driver\Hanselman\sta3.png" />
+    <Content Include="Assets\1280\MainHub\cha1-emp.png" />
+    <Content Include="Assets\1280\MainHub\cha1.png" />
+    <Content Include="Assets\1280\MainHub\cha2-emp.png" />
+    <Content Include="Assets\1280\MainHub\cha2.png" />
+    <Content Include="Assets\1280\MainHub\sta1.png" />
+    <Content Include="Assets\1280\MainHub\sta2.png" />
+    <Content Include="Assets\1280\MainHub\sta3.png" />
+    <Content Include="Assets\1280\MainHub\sta4.png" />
+    <Content Include="Assets\1280\MainHub\top1.png" />
+    <Content Include="Assets\1280\MainHub\top2.png" />
+    <Content Include="Assets\1280\MainHub\top3.png" />
+    <Content Include="Assets\1280\MainHub\top4.png" />
+    <Content Include="Assets\1280\MainHub\top5.png" />
+    <Content Include="Assets\1280\map.png" />
+    <Content Include="Assets\1280\Milles\cha2A.png" />
+    <Content Include="Assets\1280\Milles\cha2B.png" />
+    <Content Include="Assets\1280\Milles\chaA.png" />
+    <Content Include="Assets\1280\Milles\chaB.png" />
+    <Content Include="Assets\1280\Milles\hd-cha2A.png" />
+    <Content Include="Assets\1280\Milles\hd-cha2B.png" />
+    <Content Include="Assets\1280\Milles\hd-chaA.png" />
+    <Content Include="Assets\1280\Milles\hd-chaB.png" />
+    <Content Include="Assets\1280\Vehicle\cha1A.png" />
+    <Content Include="Assets\1280\Vehicle\cha1B.png" />
+    <Content Include="Assets\1280\Vehicle\cha2A.png" />
+    <Content Include="Assets\1280\Vehicle\cha2B.png" />
+    <Content Include="Assets\1920\Vehicle\map.png" />
+    <Content Include="Assets\1920\Vehicle\maploading.png" />
+    <Content Include="Assets\1920\Vehicle\maptraveled.png" />
+    <Content Include="Assets\1280\Vehicle\map.png" />
+    <Content Include="Assets\1280\Vehicle\maploading.png" />
+    <Content Include="Assets\1280\Vehicle\maptraveled.png" />
+    <Content Include="Assets\1280\Vehicle\month.png" />
+    <Content Include="Assets\1280\Vehicle\monthactive.png" />
+    <Content Include="Assets\1280\Vehicle\next.png" />
+    <Content Include="Assets\1280\Vehicle\previous.png" />
+    <Content Include="Assets\1280\Vehicle\ala1.png" />
+    <Content Include="Assets\1280\Vehicle\ala2.png" />
+    <Content Include="Assets\1280\Vehicle\ala3.png" />
+    <Content Include="Assets\1280\Vehicle\ala4.png" />
+    <Content Include="Assets\1280\Vehicle\ala5.png" />
+    <Content Include="Assets\1280\Vehicle\cha1.png" />
+    <Content Include="Assets\1280\Vehicle\cha2.png" />
+    <Content Include="Assets\1280\Vehicle\ske.png" />
+    <Content Include="Assets\1280\Vehicle\year.png" />
+    <Content Include="Assets\1280\Vehicle\yearactive.png" />
+    <Content Include="Assets\1920\bg1920.png" />
+    <Content Include="Assets\1920\Driver\Guthrie\hd-sta1.png" />
+    <Content Include="Assets\1920\Driver\Guthrie\hd-sta2.png" />
+    <Content Include="Assets\1920\Driver\Guthrie\hd-car-file.png" />
+    <Content Include="Assets\1920\Driver\Guthrie\hd-driver-file.png" />
+    <Content Include="Assets\1920\Driver\Hanselman\hd-car-file.png" />
+    <Content Include="Assets\1920\Driver\Hanselman\hd-driver-file.png" />
+    <Content Include="Assets\1920\Driver\Hanselman\hd-sta1.png" />
+    <Content Include="Assets\1920\Driver\Hanselman\hd-sta2.png" />
+    <Content Include="Assets\1920\MainHub\hd-cha1-emp.png" />
+    <Content Include="Assets\1920\MainHub\hd-cha1.png" />
+    <Content Include="Assets\1920\MainHub\hd-cha2-emp.png" />
+    <Content Include="Assets\1920\MainHub\hd-cha2.png" />
+    <Content Include="Assets\1920\MainHub\hd-sta1.png" />
+    <Content Include="Assets\1920\MainHub\hd-sta2.png" />
+    <Content Include="Assets\1920\MainHub\hd-sta3.png" />
+    <Content Include="Assets\1920\MainHub\hd-sta4.png" />
+    <Content Include="Assets\1920\MainHub\hd-top1.png" />
+    <Content Include="Assets\1920\MainHub\hd-top2.png" />
+    <Content Include="Assets\1920\MainHub\hd-top3.png" />
+    <Content Include="Assets\1920\MainHub\hd-top4.png" />
+    <Content Include="Assets\1920\map.png" />
+    <Content Include="Assets\1920\Vehicle\ala1.png" />
+    <Content Include="Assets\1920\Vehicle\ala2.png" />
+    <Content Include="Assets\1920\Vehicle\ala3.png" />
+    <Content Include="Assets\1920\Vehicle\ala4.png" />
+    <Content Include="Assets\1920\Vehicle\ala5.png" />
+    <Content Include="Assets\1920\Vehicle\cha1.png" />
+    <Content Include="Assets\1920\Vehicle\cha2.png" />
+    <Content Include="Assets\back.png" />
+    <Content Include="Assets\close.png" />
+    <Content Include="Assets\logoInterior.png" />
+    <Content Include="Assets\pngGreen.png" />
+    <Content Include="Assets\pngRed1.png" />
+    <Content Include="Assets\SmallLogo.scale-100.png" />
+    <Content Include="Assets\SmallLogo.scale-140.png" />
+    <Content Include="Assets\SmallLogo.scale-180.png" />
+    <Content Include="Assets\SmallLogo.scale-80.png" />
+    <Content Include="Assets\SmallLogo.targetsize-16.png" />
+    <Content Include="Assets\SmallLogo.targetsize-256.png" />
+    <Content Include="Assets\SmallLogo.targetsize-32.png" />
+    <Content Include="Assets\SmallLogo.targetsize-48.png" />
+    <Content Include="Assets\SplashScreen.scale-100.png" />
+    <Content Include="Assets\SplashScreen.scale-140.png" />
+    <Content Include="Assets\SplashScreen.scale-180.png" />
+    <Content Include="Assets\Square150x150Logo.scale-100.png" />
+    <Content Include="Assets\Square150x150Logo.scale-140.png" />
+    <Content Include="Assets\Square150x150Logo.scale-180.png" />
+    <Content Include="Assets\Square150x150Logo.scale-80.png" />
+    <Content Include="Assets\Square30x30Logo.scale-180.png" />
+    <Content Include="Assets\Square310x310Logo.scale-100.png" />
+    <Content Include="Assets\Square310x310Logo.scale-140.png" />
+    <Content Include="Assets\Square310x310Logo.scale-180.png" />
+    <Content Include="Assets\Square310x310Logo.scale-80.png" />
+    <Content Include="Assets\StoreLogo.scale-100.png" />
+    <Content Include="Assets\StoreLogo.scale-140.png" />
+    <Content Include="Assets\StoreLogo.scale-180.png" />
+    <Content Include="Assets\user.png" />
+    <Content Include="Assets\Wide310x150Logo.scale-100.png" />
+    <Content Include="Assets\Wide310x150Logo.scale-140.png" />
+    <Content Include="Assets\Wide310x150Logo.scale-180.png" />
+    <Content Include="Assets\Wide310x150Logo.scale-80.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="Resources\Styles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Page>
+    <Page Include="Views\MapPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MillesHub.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\CarsHub.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DriversHub.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MainHub.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <SDKReference Include="Bing.Maps.Xaml, Version=1.313.0825.0">
+      <Name>Bing Maps for C#, C++, or Visual Basic</Name>
+    </SDKReference>
+    <SDKReference Include="Microsoft.VCLibs, version=12.0">
+      <Name>Microsoft Visual C++ 2013 Runtime Package for Windows</Name>
+    </SDKReference>
+  </ItemGroup>
+  <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '12.0' ">
+    <VisualStudioVersion>12.0</VisualStudioVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'BuildDebug|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\BuildDebug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_APP</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'BuildDebug|ARM'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM\BuildDebug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_APP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <NoStdLib>true</NoStdLib>
+    <DebugType>full</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'BuildDebug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\BuildDebug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_APP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <NoStdLib>true</NoStdLib>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'BuildDebug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\BuildDebug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_APP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <NoStdLib>true</NoStdLib>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
+  <!--<Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />-->
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
