@@ -2,9 +2,6 @@
 namespace MyShuttle.Web.AppBuilderExtensions
 {
     using Microsoft.AspNet.Builder;
-    using Microsoft.AspNet.Http;
-    using Microsoft.AspNet.Identity;
-    using Microsoft.AspNet.Security.Cookies;
 
     public static class SecurityExtensions
     {

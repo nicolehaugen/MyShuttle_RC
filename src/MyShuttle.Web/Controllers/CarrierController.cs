@@ -3,10 +3,10 @@ namespace MyShuttle.Web.Controllers
 {
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Mvc;
-    using Microsoft.AspNet.Security;
     using Models;
     using Model;
     using System.Threading.Tasks;
+    using Microsoft.AspNet.Authorization;
 
     [Authorize]
     public class CarrierController : Controller
