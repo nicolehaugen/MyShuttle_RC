@@ -20,7 +20,6 @@ Thumbs.db
 *.ilk
 *.log
 [Bb]in
-[Dd]ebug*/
 *.lib
 *.sbr
 **/bin
@@ -32,7 +31,6 @@ node_modules/
 **/MyShuttle.Web/**/lib/
 .idea
 /MyShuttle.sln.ide
-src/MvvmCross-UserInteraction/packages/
 bld/
 !Automation/Tools/*.exe
 **.lock.json
