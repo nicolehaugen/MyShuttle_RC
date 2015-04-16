@@ -73,7 +73,8 @@ namespace MyShuttle.Client.Desktop.ViewModels
             if (vehiclesCount > 0)
             {
                 var vehicles = await MyShuttleClient.VehiclesService.GetAsync(string.Empty, vehiclesCount, 0);
-                Vehicles = new ObservableCollection<Vehicle>(vehicles);
+                Vehicles = new ObservableCollection<Vehicle>(vehicles); //Let's inspect this collection with Lambda debugging
+                
                 Details.SelectedVehicle = Vehicles.FirstOrDefault();
             }
 
