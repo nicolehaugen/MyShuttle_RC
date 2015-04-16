@@ -64,7 +64,7 @@ namespace MyShuttle.Client.Desktop.ViewModels
         {
             SelectedDriver = null;
 
-            if (selectedVehicle == null)
+            if (selectedVehicle == null) 
             {
                 IsLoadingDriver = false;
                 return;
@@ -72,6 +72,7 @@ namespace MyShuttle.Client.Desktop.ViewModels
 
             if (!IsDriverCompleteLoaded(selectedVehicle.Driver))
             {
+                //Load Driver details from our service
                 IsLoadingDriver = true;
                 selectedVehicle.Driver = await MyShuttleClient.DriversService.GetAsync(selectedVehicle.DriverId);
             }
