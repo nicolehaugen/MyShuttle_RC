@@ -94,6 +94,9 @@
     <Compile Include="Converters\VehicleToGeopointConverter.cs" />
     <Compile Include="DebugTrace.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\MobileServices\MyShuttleMobileServiceIgnite1-RC\push.register.cs">
+      <ConnectedServiceReference>MyShuttleMobileServiceIgnite1-RC</ConnectedServiceReference>
+    </Compile>
     <Compile Include="Sevices\MobileServices\MyShuttle\push.register.cs" />
     <Compile Include="Views\Base\WindowsPhoneBasePage.cs" />
     <Compile Include="Setup.cs" />

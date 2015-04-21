@@ -64,8 +64,9 @@ namespace MyShuttle.MobileServices.Controllers
                 // Create invoice, Queue Message and Submit to Azure Queue
                 await InvoiceService.CreateInvoice(GetInvoice(current, employee));
 
+                //Commented out since we're not showing SalesForce integration
                 // Add Customer Contact´s data to SaleForce CRM
-                await _salesforceService.AddContact(item, employee);
+                //await _salesforceService.AddContact(item, employee);
             }
             
             return CreatedAtRoute("Tables", new { id = current.Id }, current);

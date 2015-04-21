@@ -7,6 +7,7 @@ namespace MyShuttle.Client.Core.Settings
         private readonly static string _MobileServiceUrl = "https://myshuttlemobileserviceignite1-rc.azure-mobile.net/";
         private readonly static string _MobileServiceKey = "RgNJIxnKylcQcvXiCIsFWqACToAntZ27";
 
+
         //private static readonly string _SignalRUrl = "http://myshuttle.azurewebsites.net/web/";
 
         private static readonly string _SignalRUrl = "http://myshuttlebiz1ignite-rc.azurewebsites.net/";
@@ -44,6 +45,9 @@ namespace MyShuttle.Client.Core.Settings
                 {
                     mobileService = new MobileServiceClient(CommonAppSettings.MobileServiceUrl,
                         CommonAppSettings.MobileServiceKey);
+
+                    //NLH - When debugging locally, uncomment this line so that only the local url is specified
+                    //mobileService = new MobileServiceClient(CommonAppSettings.MobileServiceUrl);
                 }
 
                 return mobileService;

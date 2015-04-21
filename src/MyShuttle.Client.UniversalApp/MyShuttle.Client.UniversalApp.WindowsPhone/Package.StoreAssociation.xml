@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <StoreAssociation xmlns="http://schemas.microsoft.com/appx/2010/storeassociation">
-  <Publisher>CN=91F1DD25-29C9-4DA4-AF45-8B5F47A84631</Publisher>
-  <PublisherDisplayName>Cesar de la Torre</PublisherDisplayName>
+  <Publisher>CN=C99C6FAF-B558-493B-8188-453F6F596919</Publisher>
+  <PublisherDisplayName>NicolelaMSFT</PublisherDisplayName>
   <GeneratePackageHash>http://www.w3.org/2001/04/xmlenc#sha256</GeneratePackageHash>
   <SupportedLocales>
     <Language Code="af" InMinimumRequirementSet="true" />
@@ -184,13 +184,11 @@
     <Language Code="vi-vn" InMinimumRequirementSet="true" />
   </SupportedLocales>
   <ProductReservedInfo>
-    <MainPackageIdentityName>49497CesardelaTorre.MyShuttle.WindowsPhone</MainPackageIdentityName>
+    <MainPackageIdentityName>19003NicolelaMSFT.MyShuttleIgnite</MainPackageIdentityName>
     <ReservedNames>
-      <ReservedName>MyShuttle.WindowsPhone</ReservedName>
+      <ReservedName>MyShuttleIgnite</ReservedName>
     </ReservedNames>
   </ProductReservedInfo>
-  <AccountPackageIdentityNames>
-    <MainPackageIdentityName>49497CesardelaTorre.MyShuttle.Test</MainPackageIdentityName>
-  </AccountPackageIdentityNames>
-  <PackageInfoList LandingUrl="https://dev.windowsphone.com/AppSubmission/AssociationLanding?windowsProductId=1e9816b3-e7a0-46e1-ab4f-881f4cab9bef" />
+  <AccountPackageIdentityNames />
+  <PackageInfoList LandingUrl="https://dev.windowsphone.com/AppSubmission/AssociationLanding?windowsProductId=08b74c39-fb5a-4100-af70-754badaae384" />
 </StoreAssociation>

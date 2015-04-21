@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/2010/manifest" xmlns:m2="http://schemas.microsoft.com/appx/2013/manifest" xmlns:m3="http://schemas.microsoft.com/appx/2014/manifest" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest">
-  <Identity Name="49497CesardelaTorre.MyShuttle.WindowsPhone" Publisher="CN=91F1DD25-29C9-4DA4-AF45-8B5F47A84631" Version="1.1.0.0" />
-  <mp:PhoneIdentity PhoneProductId="5c6f8f04-8ea9-476e-b451-fb65637c8400" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
+  <Identity Name="19003NicolelaMSFT.MyShuttleIgnite" Publisher="CN=C99C6FAF-B558-493B-8188-453F6F596919" Version="1.1.0.0" />
+  <mp:PhoneIdentity PhoneProductId="f23bff1d-51f8-40ee-b88c-bc1fc495fd3d" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
-    <DisplayName>MyShuttle.WindowsPhone</DisplayName>
-    <PublisherDisplayName>Cesar de la Torre</PublisherDisplayName>
+    <DisplayName>MyShuttleIgnite</DisplayName>
+    <PublisherDisplayName>NicolelaMSFT</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
   <Prerequisites>

@@ -220,6 +220,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\NotifyAllUsersController.cs" />
     <Compile Include="Controllers\NotifyNewRequest.cs" />
     <Compile Include="Controllers\NotifyApprovedRequestController.cs" />
     <Compile Include="Controllers\NotifyRejectedRequestController.cs" />
@@ -264,6 +265,7 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Properties\PublishProfiles\mobile-MyShuttleMobileServiceIgnite1-RC %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\mobile-MyShuttleMobileServiceIgnite1-RC.pubxml" />
     <None Include="Properties\PublishProfiles\MyShuttle - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\MyShuttle2 - Web Deploy.pubxml" />
