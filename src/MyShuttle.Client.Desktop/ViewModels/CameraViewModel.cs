@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace MyShuttle.Client.Desktop.ViewModels
 {
-    public class CameraViewModel : BaseViewModel
+    public class CameraViewModel : BaseViewModel, IDisposable
     {
         private const string CameraViewVehicleIdKey = "CAMERAVIEWVEHICLEID";
 
@@ -74,6 +74,11 @@ namespace MyShuttle.Client.Desktop.ViewModels
         {
             IsDetecting = false;
             Details.SelectedVehicle = null;
+        }
+
+        public void Dispose()
+        {
+            loadVehicleTask.Dispose();
         }
     }
 }
