@@ -7,7 +7,9 @@ using System.Windows.Interop;
 
 namespace MyShuttle.Client.Desktop
 {
+#pragma warning disable CA1060 // Move P/Invokes to native methods class
     public partial class MainWindow : Window
+#pragma warning restore CA1060 // Move P/Invokes to native methods class
     {
         public MainWindow()
         {
@@ -245,7 +247,9 @@ namespace MyShuttle.Client.Desktop
             }
         }
 
+#pragma warning disable CA1036
         internal enum WM
+#pragma warning restore CA1036 
         {
             WINDOWPOSCHANGING = 0x0046,
             GETMINMAXINFO = 0x0024
@@ -263,7 +267,9 @@ namespace MyShuttle.Client.Desktop
             public int flags;
         }
 
+#pragma warning disable CA1036 
         internal enum SWP
+#pragma warning restore CA1036 
         {
             NOMOVE = 0x0002
         }

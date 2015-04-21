@@ -56,7 +56,9 @@ namespace MyShuttle.Client.Desktop.Infrastructure
         }
 
 
+#pragma warning disable CA1715 // Type parameter names should be prefixed with 'T'
         private static void Navigate<V, VM>()
+#pragma warning restore CA1715 // Type parameter names should be prefixed with 'T'
             where V : Page
             where VM : BaseViewModel
         {

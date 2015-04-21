@@ -105,7 +105,9 @@ namespace MyShuttle.Client.UniversalApp.Views
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
+#pragma warning disable CS0628 // New protected member declared in sealed class
         protected void OnPropertyChanged(string propertyName)
+#pragma warning restore CS0628 // New protected member declared in sealed class
         {
             if (PropertyChanged != null)
                 this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));

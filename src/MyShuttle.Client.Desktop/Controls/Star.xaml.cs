@@ -61,7 +61,9 @@ namespace MyShuttle.Client.Desktop.Controls
         }
     }
 
+#pragma warning disable CA1036
     public enum StarState
+#pragma warning restore CA1036 
     {
         Off = 0,
         On = 1
