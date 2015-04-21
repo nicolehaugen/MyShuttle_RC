@@ -78,7 +78,7 @@ namespace MyShuttle.Client.Desktop.ViewModels
 
         public void Dispose()
         {
-            throw new NotImplementedException();
+            loadVehicleTask.Dispose();
         }
     }
 }
