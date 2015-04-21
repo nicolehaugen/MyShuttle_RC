@@ -7,7 +7,9 @@ using System.Windows.Interop;
 
 namespace MyShuttle.Client.Desktop
 {
+#pragma warning disable CA1060 // Move P/Invokes to native methods class
     public partial class MainWindow : Window
+#pragma warning restore CA1060 // Move P/Invokes to native methods class
     {
         public MainWindow()
         {
