@@ -43,11 +43,16 @@ namespace MyShuttle.Client.Core.Settings
             {
                 if (mobileService == null)
                 {
-                    mobileService = new MobileServiceClient(CommonAppSettings.MobileServiceUrl,
-                        CommonAppSettings.MobileServiceKey);
-
-                    //NLH - When debugging locally, uncomment this line so that only the local url is specified
-                    //mobileService = new MobileServiceClient(CommonAppSettings.MobileServiceUrl);
+                    if (CommonAppSettings.MobileServiceUrl.Contains("localhost"))
+                    {
+                        //NLH - When debugging locally, only specify the local url
+                        mobileService = new MobileServiceClient(CommonAppSettings.MobileServiceUrl);
+                    }
+                    else
+                    {
+                        mobileService = new MobileServiceClient(CommonAppSettings.MobileServiceUrl,
+                            CommonAppSettings.MobileServiceKey);
+                    }
                 }
 
                 return mobileService;
