@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>MyShuttle Client</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,700,400,600' rel='stylesheet' type='text/css'>
+    <link href="scripts/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="scripts/signature-pad/assets/jquery.signaturepad.css" rel="stylesheet" />
+    <link href="css/main.css" rel="stylesheet" />
+</head>
+<body>
+    <ms-loader class="loader">
+        <div class="spinner">
+            <div class="spinner-container container1">
+                <div class="circle1"></div>
+                <div class="circle2"></div>
+                <div class="circle3"></div>
+                <div class="circle4"></div>
+            </div>
+            <div class="spinner-container container2">
+                <div class="circle1"></div>
+                <div class="circle2"></div>
+                <div class="circle3"></div>
+                <div class="circle4"></div>
+            </div>
+            <div class="spinner-container container3">
+                <div class="circle1"></div>
+                <div class="circle2"></div>
+                <div class="circle3"></div>
+                <div class="circle4"></div>
+            </div>
+        </div>
+    </ms-loader>
+
+    <section class="container main-content">
+        <header data-ng-include="'app/modules/core/views/header.html'" class="header row"></header>
+        <section data-ng-view class="view"></section>
+    </section>
+
+    <!-- Cordova reference, this is added to your app when it's built. -->
+    <script type="text/javascript" src="cordova.js"></script>
+    
+    <!-- Thrid party dependencies -->
+    <script type="text/javascript" src="libs/jquery-win8/jquery-1.8.2-win8-1.0.js"></script>
+    <script type="text/javascript">
+        jQuery.isUnsafe = true;
+    </script>
+    <script type="text/javascript" src="scripts/angular/angular.js"></script>
+    <script type="text/javascript" src="scripts/angular-route/angular-route.js"></script>
+    <script type="text/javascript" src="scripts/bootstrap/dist/js/bootstrap.js"></script>
+    <script type="text/javascript" src="scripts/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script type="text/javascript" src="scripts/moment/moment.js"></script>
+    <script type="text/javascript" src="scripts/angular-moment/angular-moment.js"></script>
+    <script type="text/javascript" src="scripts/signature-pad/jquery.signaturepad.js"></script>
+    <script type="text/javascript" src="scripts/NotificationHub.js"></script>
+    <script type="text/javascript" src="https://ecn.dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=7.0&s=1" charset="UTF-8" type="text/javascript"></script>
+    <script type="text/javascript" src="scripts/signalr/jquery.signalR.js"></script>
+    
+    <!-- App dependencies -->
+    <!-- Uncomment this line if you compile typescript files with Visual Studio (Typescript 1.4.3) -->
+    <script type="text/javascript" src="scripts/appBundle.js"></script>
+    <!-- Uncomment this line if you compile typescript files with the gulp task (Typescript 1.5.0 Alpha) -->
+    <!--<script type="text/javascript" src="scripts/appBundleGulp.js"></script>-->
+    <script type="text/javascript" src="scripts/templates.js"></script>
+</body>
+</html>
