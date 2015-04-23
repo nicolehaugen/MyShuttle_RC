@@ -7,7 +7,7 @@ using System.IO;
 using Windows.Storage;
 using Windows.Storage.Streams;
 using Windows.ApplicationModel.Resources;
-using Microsoft.Office365.SharePoint.Extensions;
+using Microsoft.Office365.SharePoint.FileServices;
 
 namespace MyShuttle.Client.UniversalApp.ConnectedServices
 {
@@ -15,7 +15,7 @@ namespace MyShuttle.Client.UniversalApp.ConnectedServices
     {
         internal async Task<StorageFile> GetFile(int id)
         {
-            File file = await ConnectedService.GetInvoiceAsync(id);
+            File file = new File();//await ConnectedService.GetInvoiceAsync(id);
 
             if (file == null)
             {
