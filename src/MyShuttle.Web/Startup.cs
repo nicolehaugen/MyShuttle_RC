@@ -5,6 +5,7 @@ namespace MyShuttle.Web
     using Data;
     using Microsoft.AspNet.Builder;
     using Microsoft.AspNet.Diagnostics;
+    using Microsoft.AspNet.Hosting;
     using Microsoft.AspNet.Identity.EntityFramework;
     using Microsoft.Framework.Caching.Memory;
     using Microsoft.Framework.ConfigurationModel;
@@ -55,7 +56,7 @@ namespace MyShuttle.Web
             services.AddSingleton<IMemoryCache, MemoryCache>();
         }
 
-        public void Configure(IApplicationBuilder app)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             // Add static files to the request pipeline
             app.UseStaticFiles();
@@ -63,6 +64,11 @@ namespace MyShuttle.Web
             // Add cookie-based authentication to the request pipeline
             app.UseIdentity();
 
+            // Add the following to the request pipeline only in development environment.
+            if (env.IsEnvironment("Development"))
+            {
+                app.UseBrowserLink();
+            }
             /* Error page middleware displays a nice formatted HTML page for any unhandled exceptions in the request pipeline.
              * Note: ErrorPageOptions.ShowAll to be used only at development time. Not recommended for production.
              */
