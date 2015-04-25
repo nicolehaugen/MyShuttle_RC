@@ -20,14 +20,14 @@ namespace MyShuttle.Client.UniversalApp
     /// </summary>
     public sealed partial class App : Application
     {
-        //NLH - The following push notification was added for debugging purposes only
-        //// http://go.microsoft.com/fwlink/?LinkId=290986&clcid=0x409
-        //public static Microsoft.WindowsAzure.MobileServices.MobileServiceClient MyShuttleMobileServiceIgnite1_RCClient = new Microsoft.WindowsAzure.MobileServices.MobileServiceClient(
-        //"https://myshuttlemobileserviceignite1-rc.azure-mobile.net/",
-        //"RgNJIxnKylcQcvXiCIsFWqACToAntZ27");
-
+        // http://go.microsoft.com/fwlink/?LinkId=290986&clcid=0x409
         public static Microsoft.WindowsAzure.MobileServices.MobileServiceClient MyShuttleMobileServiceIgnite1_RCClient = new Microsoft.WindowsAzure.MobileServices.MobileServiceClient(
-            "http://localhost:35256");
+        "https://myshuttlemobileserviceignite1-rc.azure-mobile.net/",
+        "RgNJIxnKylcQcvXiCIsFWqACToAntZ27");
+
+
+        //public static Microsoft.WindowsAzure.MobileServices.MobileServiceClient MyShuttleMobileServiceIgnite1_RCClient = new Microsoft.WindowsAzure.MobileServices.MobileServiceClient(
+        //    "http://localhost:35256");
 
 #if WINDOWS_PHONE_APP
         private TransitionCollection transitions;
@@ -122,7 +122,7 @@ namespace MyShuttle.Client.UniversalApp
 #if WINDOWS_PHONE_APP
 
 
-            MyShuttlePush.UploadChannel();
+          //  MyShuttlePush.UploadChannel();
 #endif
 
             //NLH - Following push notification is for debugging purposes only - need to remove this from demo

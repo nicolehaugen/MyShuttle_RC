@@ -325,7 +325,7 @@ var MyShuttle;
                 this.rideAddress = '50 Varick St, New York, NY 10012';
                 this.bingMapsKey = 'AowwaZssHfABfk67j7II30OYz2E4PF2qYsX3kSDLjokOyDLFR3HBozSlZY9gNb6e';
                 this.mobileServiceKey = 'RgNJIxnKylcQcvXiCIsFWqACToAntZ27';
-                this.gcmSenderId = '615185909031';
+                this.gcmSenderId = '966619194956';
                 this.realTimeNotificationsServerUrl = 'http://myshuttlebiz1ignite-rc.azurewebsites.net/';
                 return this;
             }
@@ -788,6 +788,7 @@ var MyShuttle;
                 this.$rootScope = $rootScope;
                 this.settingsService = settingsService;
                 this.messengerService = messengerService;
+                debugger;
                 this.createClient();
                 this.$rootScope.$on(this.messengerService.messageTypes.settingsChanged, function () {
                     _this.createClient();
@@ -795,14 +796,17 @@ var MyShuttle;
                 return this;
             }
             DataService.prototype.createClient = function () {
+                debugger;
                 this.client = new WindowsAzure.MobileServiceClient(this.settingsService.getMobileServiceUrl(), this.settingsService.mobileServiceKey);
                 this.rideTable = this.client.getTable('ride');
                 this.employeeTable = this.client.getTable('employee');
             };
             DataService.prototype.getEmployee = function (id) {
+                debugger;
                 return this.employeeTable.where({ Id: id }).read();
             };
             DataService.prototype.addRide = function (data) {
+                debugger;
                 var ride = new Ride();
                 ride.StartDateTime = data.startRideTime.toDate();
                 ride.EndDateTime = data.endRideTime.toDate();
@@ -821,12 +825,14 @@ var MyShuttle;
                 ride.DriverId = this.settingsService.vehicle.DriverId;
                 ride.Employee = new Employee();
                 ride.Employee.Email = data.employeeEmail;
+                debugger;
                 return this.rideTable.insert(ride);
             };
             return DataService;
         })();
         Rides.DataService = DataService;
         Rides.angularModule.factory('dataService', function ($rootScope, settingsService, messengerService) {
+            debugger;
             return new MyShuttle.Rides.DataService($rootScope, settingsService, messengerService);
         });
     })(Rides = MyShuttle.Rides || (MyShuttle.Rides = {}));
@@ -932,7 +938,8 @@ var MyShuttle;
                     if (this.mobileClient) {
                         var hub = new NotificationHub(this.mobileClient);
                         var template = "<?xml version=\"1.0\" encoding=\"utf-8\"?>" + "<wp:Notification xmlns:wp=\"WPNotification\">" + "<wp:Toast>" + "<wp:Text1>Request received</wp:Text1>" + "<employeeId>$(employeeId)</employeeId>" + "<latitude>$(latitude)</latitude>" + "<longitude>$(longitude)</longitude>" + "</wp:Toast>" + "</wp:Notification>";
-                        hub.mpns.register(result.uri, this.tagsToRegister, 'myTemplate', template).done(function () {
+                        //hub.mpns.register(result.uri, this.tagsToRegister, 'myTemplate', template)
+                        hub.mpns.register(result.uri).done(function () {
                             console.log('Registered with hub.');
                         }).fail(function (error) {
                             console.log('Failed registering with hub: ' + error);
@@ -1076,11 +1083,101 @@ var MyShuttle;
                 $scope.$on('$locationChangeStart', function (event) {
                     messengerService.send(messengerService.messageTypes.hideNavigateBackBtn);
                 });
+                mobileServiceClient = new WindowsAzure.MobileServiceClient("https://myshuttlepushnotificationmobileservice.azure-mobile.net/", "muLzKtUgItkcGCSRkvxovHKaygpRSS90");
+                // Define the PushPlugin.
+                pushNotification = window.plugins.pushNotification;
+                //TODO: remove GCM registration for the demo
+                // Platform-specific registrations.
+                if (device.platform == 'android' || device.platform == 'Android') {
+                    // Register with GCM for Android apps.
+                    pushNotification.register(onSuccess, error, {
+                        "senderID": GCM_SENDER_ID,
+                        "ecb": "onGcmNotification"
+                    });
+                }
+                else if (device.platform === 'Win32NT') {
+                    pushNotification.register(this.channelHandler, this.error, {
+                        'channelName': 'MyPushChannel',
+                        'ecb': 'onNotificationWP8',
+                        'uccb': 'channelHandler',
+                        'errcb': 'errorHandler'
+                    });
+                }
+                //TODo: Need to move to when after request received
+                var table = mobileServiceClient.getTable('NotificationTable');
+                table.insert({ text: "Called from Cordova", complete: false });
             };
             init();
         });
     })(Settings = MyShuttle.Settings || (MyShuttle.Settings = {}));
 })(MyShuttle || (MyShuttle = {}));
+function onSuccess(e) {
+    var test = "Nicole";
+}
+function error(error) {
+    console.log('Error: ' + error);
+}
+// Windows Phone channel handler.
+function channelHandler(result) {
+    console.log("channelHandler called");
+    if (result.uri !== '') {
+        if (this.mobileServiceClient) {
+            var hub = new NotificationHub(this.mobileServiceClient);
+            var template = "<?xml version=\"1.0\" encoding=\"utf-8\"?>" + "<wp:Notification xmlns:wp=\"WPNotification\">" + "<wp:Toast>" + "<wp:Text1>Request received</wp:Text1>" + "<employeeId>$(employeeId)</employeeId>" + "<latitude>$(latitude)</latitude>" + "<longitude>$(longitude)</longitude>" + "</wp:Toast>" + "</wp:Notification>";
+            //hub.mpns.register(result.uri, this.tagsToRegister, 'myTemplate', template)
+            hub.mpns.register(result.uri).done(function () {
+                console.log('Registered with hub.');
+            }).fail(function (error) {
+                console.log('Failed registering with hub: ' + error);
+            });
+        }
+    }
+    else {
+        console.log('Channel URI could not be obtained.');
+    }
+}
+var GCM_SENDER_ID = '966619194956'; // Replace with your own ID.
+var mobileServiceClient;
+var pushNotification;
+// Create the Azure client register for notifications.
+document.addEventListener('deviceready', function () {
+});
+// Handle a GCM notification.
+function onGcmNotification(e) {
+    switch (e.event) {
+        case 'registered':
+            // Handle the registration.
+            if (e.regid.length > 0) {
+                console.log("gcm id " + e.regid);
+                if (mobileServiceClient) {
+                    // Template registration.
+                    var template = "{ \"data\" : {\"message\":\"$(message)\"}}";
+                    // Register for notifications.
+                    mobileServiceClient.push.gcm.registerTemplate(e.regid, "myTemplate", template, null).done(function () {
+                        alert('Registered template with Azure!');
+                    }).fail(function (error) {
+                        alert('Failed registering with Azure: ' + error);
+                    });
+                }
+            }
+            break;
+        case 'message':
+            if (e.foreground) {
+                // Handle the received notification when the app is running
+                // and display the alert message.
+                alert(e.payload.message);
+                // Reload the items list.
+                refreshTodoItems();
+            }
+            break;
+        case 'error':
+            alert('Google Cloud Messaging error: ' + e.message);
+            break;
+        default:
+            alert('An unknown GCM event has occurred');
+            break;
+    }
+}
 /// <reference path="../../../../scripts/typings/jasmine/jasmine.d.ts" />
 describe('HeaderController Tests', function () {
     it('test the truth', function () {

@@ -27,25 +27,29 @@ namespace MyShuttle.Client.UniversalApp.Sevices.MobileServices.MyShuttle
 
             try
             {
-                string template = String.Format(@"<toast>
-                        <visual>
-                            <binding template=""ToastText01"">
-                                <text id=""1"">$(message)</text>
-                            </binding>
-                        </visual>
-                        </toast>");
+                //string template = String.Format(@"<toast>
+                //        <visual>
+                //            <binding template=""ToastText01"">
+                //                <text id=""1"">$(message)</text>
+                //            </binding>
+                //        </visual>
+                //        </toast>");
 
-                var employeeId = CommonAppSettings.FixedEmployeeId;
+                //var employeeId = CommonAppSettings.FixedEmployeeId;
 
-                string[] tags = new string[] 
-                    { 
-                        string.Format("VehicleApproved-{0}", employeeId),
-                        string.Format("VehicleRejected-{0}", employeeId),
-                        string.Format("VehicleArrived-{0}", employeeId)
-                    };
+                //string[] tags = new string[] 
+                //    { 
+                //        string.Format("VehicleApproved-{0}", employeeId),
+                //        string.Format("VehicleRejected-{0}", employeeId),
+                //        string.Format("VehicleArrived-{0}", employeeId)
+                //    };
 
-                await CommonAppSettings.MobileService.GetPush()
-                    .RegisterTemplateAsync(channel.Uri, template, "MyShuttleTemplate", tags);
+                //// await CommonAppSettings.MobileService.GetPush().
+
+                await CommonAppSettings.MobileService.GetPush().RegisterNativeAsync(channel.Uri);
+
+                    //await CommonAppSettings.MobileService.GetPush()
+                    //.RegisterTemplateAsync(channel.Uri, template, "MyShuttleTemplate", tags);
             }
             catch (Exception exception)
             {
@@ -56,6 +60,7 @@ namespace MyShuttle.Client.UniversalApp.Sevices.MobileServices.MyShuttle
         static void channel_PushNotificationReceived(PushNotificationChannel sender, 
             PushNotificationReceivedEventArgs args)
         {
+            string s = "";
         }
 
         private static async void HandleRegisterException(Exception exception)
