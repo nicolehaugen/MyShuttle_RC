@@ -6,7 +6,8 @@
 
     <Application.Resources>
         <ResourceDictionary>
-            <x:String x:Key="ida:ClientID">a1d9cf30-349a-4e23-9cdc-da92b05147bf</x:String>
+            <x:String x:Key="ida:ClientID">89787933-51a2-41c1-a70c-7ccbc8ab87ad</x:String>
+            <x:String x:Key="ida:AADInstance">https://login.microsoftonline.com/</x:String>
             <x:String x:Key="ida:AuthorizationUri">https://login.windows.net</x:String>
             <local:LocalizedStrings x:Key="LocalizedStrings" />
            
@@ -29,7 +30,7 @@
                 
                 <ResourceDictionary Source="Resources/Templates/ItemTemplates.xaml" />
             </ResourceDictionary.MergedDictionaries>
-           
+            
         </ResourceDictionary>
     </Application.Resources>
 
