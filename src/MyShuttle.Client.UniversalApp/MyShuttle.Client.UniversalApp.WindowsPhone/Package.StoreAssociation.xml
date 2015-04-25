@@ -184,13 +184,17 @@
     <Language Code="vi-vn" InMinimumRequirementSet="true" />
   </SupportedLocales>
   <ProductReservedInfo>
-    <MainPackageIdentityName>19003NicolelaMSFT.NLHMyShuttleIgnite1</MainPackageIdentityName>
+    <MainPackageIdentityName>19003NicolelaMSFT.MyShuttlePushNotificationApp</MainPackageIdentityName>
     <ReservedNames>
-      <ReservedName>NLHMyShuttleIgnite1</ReservedName>
+      <ReservedName>MyShuttlePushNotificationApp</ReservedName>
     </ReservedNames>
   </ProductReservedInfo>
   <AccountPackageIdentityNames>
     <MainPackageIdentityName>19003NicolelaMSFT.MyShuttleIgnite</MainPackageIdentityName>
+    <MainPackageIdentityName>19003NicolelaMSFT.MyShuttleIgniteRC</MainPackageIdentityName>
+    <MainPackageIdentityName>19003NicolelaMSFT.MyShuttleIgniteRCFinal</MainPackageIdentityName>
+    <MainPackageIdentityName>19003NicolelaMSFT.NLHMyShuttleIgnite1</MainPackageIdentityName>
+    <MainPackageIdentityName>19003NicolelaMSFT.TestPushPhoneApp</MainPackageIdentityName>
   </AccountPackageIdentityNames>
-  <PackageInfoList LandingUrl="https://dev.windowsphone.com/AppSubmission/AssociationLanding?windowsProductId=13be488f-372f-44b1-9d4f-db70a928e509" />
+  <PackageInfoList LandingUrl="https://dev.windowsphone.com/AppSubmission/AssociationLanding?windowsProductId=3f937d2e-c3d9-4463-95ec-19e5ad054f67" />
 </StoreAssociation>

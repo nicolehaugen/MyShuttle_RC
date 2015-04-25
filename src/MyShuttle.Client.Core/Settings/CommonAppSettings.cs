@@ -3,10 +3,11 @@ namespace MyShuttle.Client.Core.Settings
 {
     public static class CommonAppSettings
     {
-        //private readonly static string _MobileServiceUrl = "http://localhost:35256/";
-        private readonly static string _MobileServiceUrl = "https://myshuttlemobileserviceignite1-rc.azure-mobile.net/";
-        private readonly static string _MobileServiceKey = "RgNJIxnKylcQcvXiCIsFWqACToAntZ27";
+        //Test Service
+        //private readonly static string _MobileServiceUrl = "http://localhost:49774/";
 
+        private readonly static string _MobileServiceUrl = "https://myshuttlepushnotificationmobileservice.azure-mobile.net/";
+        private readonly static string _MobileServiceKey = "muLzKtUgItkcGCSRkvxovHKaygpRSS90";
 
         //private static readonly string _SignalRUrl = "http://myshuttle.azurewebsites.net/web/";
 

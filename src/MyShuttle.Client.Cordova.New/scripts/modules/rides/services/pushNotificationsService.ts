@@ -116,7 +116,8 @@ module MyShuttle.Rides {
                         "</wp:Toast>" +
                         "</wp:Notification>";
 
-                    hub.mpns.register(result.uri, this.tagsToRegister, 'myTemplate', template)
+                    //hub.mpns.register(result.uri, this.tagsToRegister, 'myTemplate', template)
+                        hub.mpns.register(result.uri)
                         .done(function () {
                         console.log('Registered with hub.');
                     }).fail(function (error) {

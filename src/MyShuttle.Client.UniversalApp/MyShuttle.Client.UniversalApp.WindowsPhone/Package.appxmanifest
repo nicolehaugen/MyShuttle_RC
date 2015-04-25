@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/2010/manifest" xmlns:m2="http://schemas.microsoft.com/appx/2013/manifest" xmlns:m3="http://schemas.microsoft.com/appx/2014/manifest" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest">
-  <Identity Name="19003NicolelaMSFT.NLHMyShuttleIgnite1" Publisher="CN=C99C6FAF-B558-493B-8188-453F6F596919" Version="1.1.0.0" />
-  <mp:PhoneIdentity PhoneProductId="0d461349-c7c5-494d-9cc3-d207ca2796cf" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
+  <Identity Name="19003NicolelaMSFT.MyShuttlePushNotificationApp" Publisher="CN=C99C6FAF-B558-493B-8188-453F6F596919" Version="1.1.0.0" />
+  <mp:PhoneIdentity PhoneProductId="eb915d0f-4fd8-432d-a8b8-2332e55bea0f" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
-    <DisplayName>NLHMyShuttleIgnite1</DisplayName>
+    <DisplayName>MyShuttlePushNotificationApp</DisplayName>
     <PublisherDisplayName>NicolelaMSFT</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>

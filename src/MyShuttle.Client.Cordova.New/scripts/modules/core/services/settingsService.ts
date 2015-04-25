@@ -47,7 +47,7 @@ module MyShuttle.Core {
 
             this.bingMapsKey = 'AowwaZssHfABfk67j7II30OYz2E4PF2qYsX3kSDLjokOyDLFR3HBozSlZY9gNb6e';
             this.mobileServiceKey = 'RgNJIxnKylcQcvXiCIsFWqACToAntZ27';
-            this.gcmSenderId = '615185909031';
+            this.gcmSenderId = '966619194956';
             this.realTimeNotificationsServerUrl = 'http://myshuttlebiz1ignite-rc.azurewebsites.net/';
 
             return this;
