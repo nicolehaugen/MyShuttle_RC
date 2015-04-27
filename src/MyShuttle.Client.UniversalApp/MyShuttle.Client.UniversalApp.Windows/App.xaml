@@ -6,7 +6,7 @@
 
     <Application.Resources>
         <ResourceDictionary>
-            <x:String x:Key="ida:ClientID">89787933-51a2-41c1-a70c-7ccbc8ab87ad</x:String>
+            <x:String x:Key="ida:ClientID">c8489193-6021-4753-ad22-fe656412534e</x:String>
             <x:String x:Key="ida:AADInstance">https://login.microsoftonline.com/</x:String>
             <x:String x:Key="ida:AuthorizationUri">https://login.windows.net</x:String>
             <local:LocalizedStrings x:Key="LocalizedStrings" />
