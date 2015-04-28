@@ -26,7 +26,7 @@ namespace MyShuttle.Client.Core.ServiceAgents
             //           new JProperty("latitude", latitude),
             //           new JProperty("longitude", longitude)));
 
-            var message = String.Format("Driver {0}", driverId);
+            var message = String.Format("Employee {0}", employeeId);
 
             try
             {
