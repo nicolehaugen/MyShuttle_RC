@@ -17,7 +17,7 @@ namespace MyShuttle.Client.Core.Infrastructure
         // Fields
         private const string UrlPrefixKey = "URLPREFIXKEY";
         private const string DefaultUrlPrefixValue = "http://myshuttlebiz1ignite-rc.azurewebsites.net/";
-        //private const string DefaultUrlPrefixValue = "http://localhost:5004/";
+        //private const string DefaultUrlPrefixValue = "http://localhost:3175/";
         private string _urlPrefix;
 
         private const string AuthenticationEnabledKey = "AUTHENTICATIONENABLEDKEY";
@@ -33,8 +33,8 @@ namespace MyShuttle.Client.Core.Infrastructure
         private int? _topListItemsCount;
 
         private const bool LocationFixedValue = true;
-        private const double LocationFixedLatitudeValue = 40.72109533886229;
-        private const double LocationFixedLongitudeValue = -74.006596745813;
+        private const double LocationFixedLatitudeValue = 41.85026;
+        private const double LocationFixedLongitudeValue = -87.618894;
 
         public string UrlPrefix
         {
