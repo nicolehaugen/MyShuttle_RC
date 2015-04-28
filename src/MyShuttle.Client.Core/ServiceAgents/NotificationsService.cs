@@ -31,17 +31,11 @@ namespace MyShuttle.Client.Core.ServiceAgents
             try
             {
                 await CommonAppSettings.MobileService.GetTable("NotificationTable").InsertAsync(new JObject(new JProperty("text", message), new JProperty("complete", "true")));
-
-                //TODO: Add data here for driver
             }
             catch (Exception e)
             {
                 string s = e.Message;
             }
-
-
-            //await App.TestMyShuttleMobileServiceClient.InvokeApiAsync("notifyAllUsers",
-            //   new JObject(new JProperty("toast", "Sample Toast")));
         }
     }
 }
