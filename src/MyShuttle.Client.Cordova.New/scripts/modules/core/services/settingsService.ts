@@ -31,7 +31,7 @@ module MyShuttle.Core {
         public realTimeNotificationsServerUrl: string;
 
         constructor(private storageService: MyShuttle.Core.StorageService) {
-            this.defaultEmployeeEmail = 'amanda@microsoft.com';
+            this.defaultEmployeeEmail = 'scottha@microsoft.com'; //NLH - The azure mobile service looks up the employee by their email address
 
             this.vehicle = new Vehicle();
             this.vehicle.VehicleId = 5;
