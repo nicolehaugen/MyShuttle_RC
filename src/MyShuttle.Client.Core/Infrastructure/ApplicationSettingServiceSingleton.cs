@@ -16,7 +16,7 @@ namespace MyShuttle.Client.Core.Infrastructure
 
         // Fields
         private const string UrlPrefixKey = "URLPREFIXKEY";
-        private const string DefaultUrlPrefixValue = "http://myshuttlebiz1ignite-rc.azurewebsites.net/";
+        private const string DefaultUrlPrefixValue = "http://myshuttlebiz1ignitenew-rc.azurewebsites.net/";
         //private const string DefaultUrlPrefixValue = "http://localhost:3175/";
         private string _urlPrefix;
 
