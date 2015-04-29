@@ -14,34 +14,33 @@ module MyShuttle.Rides {
         modalService: MyShuttle.Rides.ModalService,
         navigationService:  MyShuttle.Core.NavigationService) {
 
-        var timeRequest;
+        var timeRequest = moment();
 
-        var showRequest = function (data: MyShuttle.Rides.INotificationData) {
-            var employeeId = data.employeeId;
-            var position = new MyShuttle.Core.Coordinate(data.latitude, data.longitude);
+        //TODO: Need to replace this with Jay's employee id
+        var employeeId = '90a0d28b-4342-40d5-92b6-af2d0ea7630b';
+        var coord = new MyShuttle.Core.Coordinate(41.85026, -87.618894);
 
-            messengerService.send(messengerService.messageTypes.startLoading);
-            dataService.getEmployee(employeeId).done(function (results) {
-                messengerService.send(messengerService.messageTypes.endLoading);
-                var employee = results[0];
-                modalService.showRideRequest(employee, position).then(function (result) {
-                    if (result) {
-                        pushNotificationsService.notifyApprovedRequest(employeeId);
-                        var params = { employee: employee, position: position, timeRequest: timeRequest };
-                        navigationService.navigateTo('service', params);
-                    }
-                    else {
-                        pushNotificationsService.notifyRejectedRequest(employeeId);
-                    }
-                });
+        messengerService.send(messengerService.messageTypes.startLoading);
+
+        dataService.getEmployee(employeeId).done(function (results) {
+            messengerService.send(messengerService.messageTypes.endLoading);
+            var employee = results[0];
+            modalService.showRideRequest(employee, coord).then(function (result) {
+                if (result) {
+                    var params = { employee: employee, position: coord, timeRequest: timeRequest };
+                    navigationService.navigateTo('service', params);
+                }
+                else {
+                    alert ('employee not found');
+                }
             });
-        }
+        });
 
         var init = function () {
-            pushNotificationsService.initPushNotifications(function (data: MyShuttle.Rides.INotificationData) {
-                timeRequest = moment();
-                showRequest(data);
-            });
+            //pushNotificationsService.initPushNotifications(function (data: MyShuttle.Rides.INotificationData) {
+            //    timeRequest = moment();
+            //    showRequest(data);
+            //});
         }
 
         init();

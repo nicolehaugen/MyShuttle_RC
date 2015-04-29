@@ -39,11 +39,10 @@ module MyShuttle.Core {
             this.vehicle.CarrierId = 1;
             this.vehicle.Rate = 3;
 
-            var coord = new Coordinate(40.72109533886229, -74.006596745813);
-            this.startRideLocation = coord;
-            this.endRideLocation = coord;
-            this.rideDistance = 0.1;
-            this.rideAddress = '50 Varick St, New York, NY 10012';
+            this.startRideLocation = new Coordinate(41.85026, -87.618894); //Ignite conference center
+            this.endRideLocation = new Coordinate(41.9474536, -87.6561341); //Wrigley Field
+            this.rideDistance = 8.5;
+            this.rideAddress = 'Wrigley Field, 1060 W Addison St. Chicago, IL 60613';
 
             this.bingMapsKey = 'AowwaZssHfABfk67j7II30OYz2E4PF2qYsX3kSDLjokOyDLFR3HBozSlZY9gNb6e';
             this.mobileServiceKey = 'RgNJIxnKylcQcvXiCIsFWqACToAntZ27';
