@@ -104,7 +104,7 @@ namespace MyShuttle.Data
         {
             return await _context.Drivers
                 .Where(d => d.CarrierId == carrierId)
-                .OrderByDescending(d => d.RatingAvg)
+                .OrderByDescending(d => d.RatingAvg).ThenByDescending(d => d.TotalRides)
                 .Take(numOfDrivers)
                 .Select(d => new Driver
                 {

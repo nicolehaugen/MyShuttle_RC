@@ -146,18 +146,18 @@
                     EmployeeId = employeeId + 1,
                     Id = "90a0d28b-4342-40d5-92b6-af2d0ea7630b",
                     CustomerId = customerId,
-                    Email = "scottha@microsoft.com",
-                    Name = "Scott Hanselman",
-                    Picture = GetEmplyoyee(1),
+                    Email = "jaysch@microsoft.com",
+                    Name = "Jay Schmelzer",
+                    Picture = GetDriver(6),
                 },
                 new Employee
                 {
                     EmployeeId = employeeId + 2,
                     Id = "bbe41151-abfa-42da-80c1-91a56cad538f",
                     CustomerId = customerId,
-                    Email = "mitra@microsoft.com",
-                    Name = "Mitra Azizirad",
-                    Picture = GetEmplyoyee(2),
+                    Email = "scottha@microsoft.com",
+                    Name = "Scott Hanselman",
+                    Picture = GetEmplyoyee(1),
                 },
                 new Employee
                 {
@@ -584,7 +584,7 @@
             context.SaveChanges();
         }
 
-        private static void CreateVehicleAndDriver_05(int carrierId, MyShuttleContext context)
+        private static void CreateVehicleAndDriver_06(int carrierId, MyShuttleContext context)
         {
             var driver = new Driver
             {
@@ -621,7 +621,7 @@
             context.SaveChanges();
         }
 
-        private static void CreateVehicleAndDriver_06(int carrierId, MyShuttleContext context)
+        private static void CreateVehicleAndDriver_05(int carrierId, MyShuttleContext context)
         {
             var driver = new Driver
             {
@@ -630,7 +630,7 @@
                 Picture = GetDriver(6),
                 CarrierId = carrierId,
                 RatingAvg = 5,
-                TotalRides = Randomize.Next(80, 100),
+                TotalRides = Randomize.Next(80, 90),
             };
             context.Drivers.Add(driver);
             context.SaveChanges();

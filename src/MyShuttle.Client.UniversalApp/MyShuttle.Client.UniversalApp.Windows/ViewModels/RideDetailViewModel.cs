@@ -33,26 +33,19 @@ namespace MyShuttle.Client.UniversalApp.ViewModels
         }
 
         private async  void DownloadInvoice()
-        {
-            //this.IsLoadingRide = true;
-            //var _fileOperations = new InvoiceService();
-
-            //var file = await _fileOperations.GetFile(this.Ride.EmployeeId);
-            //if (file != null)
-            //{
-            //    var launcher = Windows.System.Launcher.LaunchFileAsync(file);
-            //}
-
-            //this.IsLoadingRide = false;
+        {        
 
             await getAppCapabilities();
             var spClient = SPClient.ensureSPClientCreated(AppCapabilities, "MyFiles");
+
             var files = await MyFilesOperation.getMyFiles(spClient);
-            string listOfFiles = "Files List: ";
+
+            string listOfFiles = "Files List: ";                        
             foreach(var myFile in files)
             {
                 listOfFiles += Environment.NewLine + myFile.Name;
             }
+
             MessageDialog dialog = new MessageDialog(listOfFiles);
             await dialog.ShowAsync();
         }
