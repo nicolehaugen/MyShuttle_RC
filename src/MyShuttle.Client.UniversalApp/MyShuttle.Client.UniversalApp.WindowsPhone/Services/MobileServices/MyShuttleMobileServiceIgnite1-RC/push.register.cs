@@ -26,26 +26,6 @@ namespace MyShuttle.Client.UniversalApp
 
             try
             {
-                //    string template = String.Format(@"<toast>
-                //            <visual>
-                //                <binding template=""ToastText01"">
-                //                    <text id=""1"">$(message)</text>
-                //                </binding>
-                //            </visual>
-                //            </toast>");
-
-                //    var employeeId = CommonAppSettings.FixedEmployeeId;
-
-                //    string[] tags = new string[]
-                //        {
-                //            string.Format("VehicleApproved-{0}", employeeId),
-                //            string.Format("VehicleRejected-{0}", employeeId),
-                //            string.Format("VehicleArrived-{0}", employeeId)
-                //        };
-
-                //    await CommonAppSettings.MobileService.GetPush()
-                //        .RegisterTemplateAsync(channel.Uri, template, "MyShuttleTemplate", tags);
-
                 await CommonAppSettings.MobileService.GetPush().RegisterNativeAsync(channel.Uri);
 
             }

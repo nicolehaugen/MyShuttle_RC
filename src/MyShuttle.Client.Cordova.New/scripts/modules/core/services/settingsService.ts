@@ -31,7 +31,7 @@ module MyShuttle.Core {
         public realTimeNotificationsServerUrl: string;
 
         constructor(private storageService: MyShuttle.Core.StorageService) {
-            this.defaultEmployeeEmail = 'scottha@microsoft.com'; //NLH - The azure mobile service looks up the employee by their email address
+            this.defaultEmployeeEmail = 'jaysch@microsoft.com'; //Note - The azure mobile service looks up the employee by their email address
 
             this.vehicle = new Vehicle();
             this.vehicle.VehicleId = 5;
@@ -47,11 +47,12 @@ module MyShuttle.Core {
             this.bingMapsKey = 'AowwaZssHfABfk67j7II30OYz2E4PF2qYsX3kSDLjokOyDLFR3HBozSlZY9gNb6e';
             this.mobileServiceKey = 'RgNJIxnKylcQcvXiCIsFWqACToAntZ27';
             this.gcmSenderId = '966619194956';
-            this.realTimeNotificationsServerUrl = 'http://myshuttlebiz1ignite-rc.azurewebsites.net/';
+            this.realTimeNotificationsServerUrl = 'http://myshuttlebiz1ignitenew-rc.azurewebsites.net/';
 
             return this;
         }
 
+        //This mobile service is used purely for data - it is NOT used for push notifications
         public getMobileServiceUrl():string {
             return this.storageService.getValue('serviceUrl', 'https://myshuttlemobileserviceignite1-rc.azure-mobile.net/');
         }

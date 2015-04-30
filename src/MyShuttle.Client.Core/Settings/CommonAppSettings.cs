@@ -15,7 +15,8 @@ namespace MyShuttle.Client.Core.Settings
 
         private static MobileServiceClient mobileService = null;
 
-        private readonly static string _FixedEmployeeId = "c7a9c8a2-a5e3-48d4-99e4-4117599af048";
+        //Jay's employee id
+        private readonly static string _FixedEmployeeId = "90a0d28b-4342-40d5-92b6-af2d0ea7630b";
 
         public static string MobileServiceUrl
         {

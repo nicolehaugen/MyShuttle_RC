@@ -18,6 +18,8 @@ namespace MyShuttle.Client.UniversalApp.Sevices.MobileServices.MyShuttle
 {
     internal class MyShuttlePush
     {
+        //This is the old service and no longer is used!!!! we need to delete this file
+
         public async static void UploadChannel()
         {
             var channel = await PushNotificationChannelManager

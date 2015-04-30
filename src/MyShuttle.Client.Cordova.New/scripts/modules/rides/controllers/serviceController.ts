@@ -15,9 +15,15 @@ module MyShuttle.Rides {
         params) {
 
         $scope.notifyEmployee = function () {
-            pushNotificationsService.notifyVehicleArrived($scope.employee.id).then(function () {
-                navigationService.navigateTo('ride', $scope.employee);
-            });
+
+            mobileServiceClient = new WindowsAzure.MobileServiceClient(
+                "https://myshuttlepushnotificationmobileservice.azure-mobile.net/",
+                "muLzKtUgItkcGCSRkvxovHKaygpRSS90");
+
+            //Note that you don't need to use the android device or android emulator for this - you can use other devices\emulators
+            var table = mobileServiceClient.getTable('NotificationTable');
+            table.insert({ text: "Vehicle has arrived", complete: false })
+            navigationService.navigateTo('ride', $scope.employee);
         }
 
         var init = function () {
