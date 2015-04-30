@@ -73,11 +73,7 @@ function onGcmNotificationTest(e) {
             if (e.foreground) {
                 var timeRequest = moment();
 
-                //This is hard-coded to Jay's employee id
-                //var employeeId = '90a0d28b-4342-40d5-92b6-af2d0ea7630b';
-
                 //Get the employee id from the received push notification
-                alert('message ' + e.payload.message);
                 var employeeId = e.payload.message;
                 var coord = new MyShuttle.Core.Coordinate(41.85026, -87.618894);
 

@@ -20,7 +20,6 @@ module MyShuttle.Rides {
                 "https://myshuttlepushnotificationmobileservice.azure-mobile.net/",
                 "muLzKtUgItkcGCSRkvxovHKaygpRSS90");
 
-            //Note that you don't need to use the android device or android emulator for this - you can use other devices\emulators
             var table = mobileServiceClient.getTable('NotificationTable');
             table.insert({ text: "Vehicle has arrived", complete: false })
             navigationService.navigateTo('ride', $scope.employee);
@@ -30,6 +29,9 @@ module MyShuttle.Rides {
             if (!params) {
                 navigationService.navigateTo('home');
             }
+            var table = mobileServiceClient.getTable('NotificationTable');
+            table.insert({ text: "Vehicle has been sent", complete: false })
+
             $scope.employee = params.employee;
             $scope.position = params.position;
             $scope.timeRequest = params.timeRequest;
